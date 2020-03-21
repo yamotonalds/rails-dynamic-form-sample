@@ -26,30 +26,72 @@
   <section class="items-section">
     <h2>Items</h2>
 
-    <%= form.fields_for :items do |item_form| %>
+    <template id="item-form-template">
+      <%= form.fields_for :items, [Item.new], child_index: '' do |item_form| %>
+        <div class="item-form">
+          <div class="field">
+            <%= item_form.label nil, for: nil do %>
+              <%= Item.human_attribute_name(:name) %><br>
+              <%= item_form.text_field :name, id: nil, index: nil %>
+            <% end %>
+          </div>
+          <div class="field">
+            <%= item_form.label :nil, for: nil do %>
+              <%= Item.human_attribute_name(:amount) %><br>
+              <%= item_form.number_field :amount, id: nil, index: nil %>
+            <% end %>
+          </div>
+          <div class="field">
+            <%= button_tag 'Delete', type: 'button', class: 'delete-item' %>
+            <%= item_form.hidden_field :_destroy, id: nil, index: nil %>
+          </div>
+        </div>
+      <% end %>
+    </template>
+
+    <%= form.fields_for :items, child_index: '', include_id: false do |item_form| %>
       <div class="item-form">
+        <%= item_form.hidden_field :id, index: nil %>
         <div class="field">
           <%= item_form.label nil, for: nil do %>
             <%= Item.human_attribute_name(:name) %><br>
-            <%= item_form.text_field :name %>
+            <%= item_form.text_field :name, index: nil %>
           <% end %>
         </div>
         <div class="field">
           <%= item_form.label :nil, for: nil do %>
             <%= Item.human_attribute_name(:amount) %><br>
-            <%= item_form.number_field :amount %>
+            <%= item_form.number_field :amount, index: nil %>
           <% end %>
         </div>
         <div class="field">
-          <%= item_form.label nil, for: nil do %>
-            Delete: <%= item_form.check_box :_destroy %>
-          <% end %>
+          <%= button_tag 'Delete', type: 'button', class: 'delete-item' %>
+          <%= item_form.hidden_field :_destroy, class: 'destroy', index: nil %>
         </div>
       </div>
     <% end %>
   </section>
 
   <div class="actions">
+    <%= button_tag 'Add Item', type: 'button', id: 'add-item' %>
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+$(() => {
+  console.log('load')
+  $('#add-item').on('click', () => {
+    console.log('add')
+    $('.items-section').append($('#item-form-template').html().replace(/\[0\]/g, '[]'))
+    return false
+  })
+  $('.items-section').on('click', '.delete-item', (e) => {
+    console.log('delete')
+    const targetItemForm = $(e.currentTarget).closest('.item-form')
+    targetItemForm.hide()
+    targetItemForm.find('.destroy').val('true')
+    return false
+  })
+})
+</script>
