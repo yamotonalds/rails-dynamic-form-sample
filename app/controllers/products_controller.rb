@@ -15,10 +15,12 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    3.times { @product.items.build }
   end
 
   # GET /products/1/edit
   def edit
+    3.times { @product.items.build }
   end
 
   # POST /products
@@ -69,6 +71,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit(:name, :price, items_attributes: [:id, :name, :amount, :_destroy])
     end
 end
