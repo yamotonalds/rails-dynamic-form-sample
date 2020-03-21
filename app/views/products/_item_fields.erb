@@ -1,0 +1,17 @@
+<div class="item-form nested-fields">
+  <div class="field">
+    <%= f.label nil, for: nil do %>
+      <%= Item.human_attribute_name(:name) %><br>
+      <%= f.text_field :name %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :nil, for: nil do %>
+      <%= Item.human_attribute_name(:amount) %><br>
+      <%= f.number_field :amount %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= link_to_remove_association "Delete", f %>
+  </div>
+</div>

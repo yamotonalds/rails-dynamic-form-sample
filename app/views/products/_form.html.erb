@@ -27,29 +27,12 @@
     <h2>Items</h2>
 
     <%= form.fields_for :items do |item_form| %>
-      <div class="item-form">
-        <div class="field">
-          <%= item_form.label nil, for: nil do %>
-            <%= Item.human_attribute_name(:name) %><br>
-            <%= item_form.text_field :name %>
-          <% end %>
-        </div>
-        <div class="field">
-          <%= item_form.label :nil, for: nil do %>
-            <%= Item.human_attribute_name(:amount) %><br>
-            <%= item_form.number_field :amount %>
-          <% end %>
-        </div>
-        <div class="field">
-          <%= item_form.label nil, for: nil do %>
-            Delete: <%= item_form.check_box :_destroy %>
-          <% end %>
-        </div>
-      </div>
+      <%= render "item_fields", f: item_form %>
     <% end %>
   </section>
 
   <div class="actions">
+    <%= link_to_add_association "Add Item", form, :items, data: { "association-insertion-node" => ".items-section", "association-insertion-method" => :append } %>
     <%= form.submit %>
   </div>
 <% end %>
