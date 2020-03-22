@@ -15,12 +15,10 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    3.times { @product.items.build }
   end
 
   # GET /products/1/edit
   def edit
-    3.times { @product.items.build }
   end
 
   # POST /products

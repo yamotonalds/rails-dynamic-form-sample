@@ -1,4 +1,4 @@
-<%= form_with(model: product, local: true) do |form| %>
+<%= form_with(model: product, local: true, id: 'dynamic-item', data: { items: JSON.generate(product.items.map { |i| i.attributes.merge(_destroy: false) }) }) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -26,30 +26,31 @@
   <section class="items-section">
     <h2>Items</h2>
 
-    <%= form.fields_for :items do |item_form| %>
-      <div class="item-form">
-        <div class="field">
-          <%= item_form.label nil, for: nil do %>
-            <%= Item.human_attribute_name(:name) %><br>
-            <%= item_form.text_field :name %>
-          <% end %>
-        </div>
-        <div class="field">
-          <%= item_form.label :nil, for: nil do %>
-            <%= Item.human_attribute_name(:amount) %><br>
-            <%= item_form.number_field :amount %>
-          <% end %>
-        </div>
-        <div class="field">
-          <%= item_form.label nil, for: nil do %>
-            Delete: <%= item_form.check_box :_destroy %>
-          <% end %>
-        </div>
+    <div class="item-form" v-for="(item, index) in items" :style="{ display: display(index) }">
+      <input type="hidden" name="product[items_attributes][][id]" v-model="item.id">
+      <div class="field">
+        <label>
+          Name<br>
+          <input type="text" name="product[items_attributes][][name]" v-model="item.name">
+        </label>
       </div>
-    <% end %>
+      <div class="field">
+        <label>
+          Amount<br>
+          <input type="number" name="product[items_attributes][][amount]" v-model="item.amount">
+        </label>
+      </div>
+      <div class="field">
+        <%= button_tag 'Delete', type: 'button', class: 'delete-item', "@click" => "deleteItem(index)" %>
+        <input type="hidden" name="product[items_attributes][][_destroy]" v-model="item._destroy">
+      </div>
+    </div>
   </section>
 
   <div class="actions">
+    <%= button_tag 'Add Item', type: 'button', id: 'add-item', "@click" => "addItem" %>
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= javascript_pack_tag 'dynamic_item_vue' %>
