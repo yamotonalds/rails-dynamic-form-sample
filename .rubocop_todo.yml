@@ -6,16 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: compact, expanded
-Style/EmptyMethod:
-  Exclude:
-    - 'app/controllers/home_controller.rb'
-    - 'app/controllers/items_controller.rb'
-    - 'app/controllers/products_controller.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Style/ExpandPathArguments:
