@@ -14,3 +14,7 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Metrics/AbcSize:
+  Exclude:
+    - 'bin/**/*'
