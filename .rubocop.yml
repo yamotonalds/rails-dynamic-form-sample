@@ -37,3 +37,6 @@ Style/Documentation:
 Style/ExpandPathArguments:
   Exclude:
     - 'bin/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
