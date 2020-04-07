@@ -52,3 +52,7 @@ Style/NumericLiterals:
 Style/PerlBackrefs:
   Exclude:
     - 'bin/**/*'
+
+Style/RedundantBegin:
+  Exclude:
+    - 'bin/**/*'
