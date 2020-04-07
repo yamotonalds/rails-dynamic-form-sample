@@ -67,3 +67,8 @@ Style/StderrPuts:
 
 Style/StringLiterals:
   Enabled: false
+
+Layout/LineLength:
+  Max: 128
+  Exclude:
+    - 'bin/**/*'
