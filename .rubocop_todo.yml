@@ -8,12 +8,6 @@
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/PerlBackrefs:
-  Exclude:
-    - 'bin/bundle'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/RedundantBegin:
   Exclude:
     - 'bin/yarn'

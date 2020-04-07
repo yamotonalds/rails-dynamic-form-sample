@@ -48,3 +48,7 @@ Style/IfUnlessModifier:
 Style/NumericLiterals:
   Exclude:
     - 'db/schema.rb'
+
+Style/PerlBackrefs:
+  Exclude:
+    - 'bin/**/*'
