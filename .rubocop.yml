@@ -33,3 +33,7 @@ Metrics/PerceivedComplexity:
 
 Style/Documentation:
   Enabled: false
+
+Style/ExpandPathArguments:
+  Exclude:
+    - 'bin/**/*'
