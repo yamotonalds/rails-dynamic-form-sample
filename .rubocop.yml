@@ -30,3 +30,6 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Exclude:
     - 'bin/**/*'
+
+Style/Documentation:
+  Enabled: false

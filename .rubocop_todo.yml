@@ -6,26 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 14
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/home_controller.rb'
-    - 'app/controllers/items_controller.rb'
-    - 'app/controllers/products_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/home_helper.rb'
-    - 'app/helpers/items_helper.rb'
-    - 'app/helpers/products_helper.rb'
-    - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
-    - 'app/models/item.rb'
-    - 'app/models/product.rb'
-    - 'config/application.rb'
-    - 'db/migrate/20200321041831_create_products.rb'
-    - 'db/migrate/20200321050812_create_items.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
