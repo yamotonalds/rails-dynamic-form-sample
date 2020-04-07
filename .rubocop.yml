@@ -26,3 +26,7 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
   Exclude:
     - 'bin/**/*'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'bin/**/*'
