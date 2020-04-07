@@ -44,3 +44,7 @@ Style/FrozenStringLiteralComment:
 Style/IfUnlessModifier:
   Exclude:
     - 'bin/**/*'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'

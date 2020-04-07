@@ -8,13 +8,6 @@
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: MinDigits, Strict.
-Style/NumericLiterals:
-  Exclude:
-    - 'db/schema.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/PerlBackrefs:
   Exclude:
     - 'bin/bundle'
