@@ -22,3 +22,7 @@ Metrics/AbcSize:
 Metrics/CyclomaticComplexity:
   Exclude:
     - 'bin/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'bin/**/*'
