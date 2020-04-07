@@ -60,3 +60,7 @@ Style/RedundantBegin:
 Style/SpecialGlobalVars:
   Exclude:
     - 'bin/**/*'
+
+Style/StderrPuts:
+  Exclude:
+    - 'bin/**/*'
