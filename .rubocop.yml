@@ -18,3 +18,7 @@ Style/HashTransformValues:
 Metrics/AbcSize:
   Exclude:
     - 'bin/**/*'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'bin/**/*'
