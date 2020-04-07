@@ -56,3 +56,7 @@ Style/PerlBackrefs:
 Style/RedundantBegin:
   Exclude:
     - 'bin/**/*'
+
+Style/SpecialGlobalVars:
+  Exclude:
+    - 'bin/**/*'
