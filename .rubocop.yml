@@ -40,3 +40,7 @@ Style/ExpandPathArguments:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'bin/**/*'
