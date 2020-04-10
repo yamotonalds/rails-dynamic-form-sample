@@ -22,10 +22,20 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.7.x
-    - name: Build and test with Rake
+    - name: Cache bundle
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-bundle-${{ hashFiles('Gemfile.lock') }}
+    - name: Install dependencies (ruby)
       run: |
-        set -x
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        yarn install --check-files
-        bin/rails webpacker:compile test
+        bundle install --jobs 4 --retry 3 --deployment
+    - name: Cache yarn
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+    - name: Install dependencies (js)
+      run: yarn install --check-files
+    - name: Build and test with Rake
+      run: bin/rails webpacker:compile test
