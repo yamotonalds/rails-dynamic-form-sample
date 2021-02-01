@@ -5,4 +5,4 @@ jobs:
       - image: circleci/ruby:2.7.2-node-browsers # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: bundle install --jobs 4 --retry 3 --deployment && yarn install --check-files && bin/rails webpacker:compile test
+      - run: bundle config set deployment 'true' && bundle install --jobs 4 --retry 3 && yarn install --check-files && bin/rails webpacker:compile test
