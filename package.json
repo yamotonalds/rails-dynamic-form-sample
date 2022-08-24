@@ -7,9 +7,9 @@
     "@rails/ujs": "^6.1.4",
     "@rails/webpacker": "5.4.3",
     "turbolinks": "^5.2.0",
-    "vue": "^2.7.4",
+    "vue": "^2.7.10",
     "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.7.4",
+    "vue-template-compiler": "^2.7.10",
     "vue-turbolinks": "^2.2.2"
   },
   "version": "0.1.0",
